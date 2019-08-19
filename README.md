@@ -11,6 +11,7 @@ a RESTFul hotel room booking manager using laravel and vue.js
 * Open the console and cd your project root directory
 * Run composer install or php composer.phar install
 * Run php artisan key:generate
+* Run vendor/bin/phpunit
 * Run php artisan serve
 * 
 #####You can now access your project at localhost:8000 :)
