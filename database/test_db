@@ -1,0 +1,506 @@
+
+CREATE TABLE `bookings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `room_id` bigint(20) NOT NULL,
+  `date_start` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_end` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_nights` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `email` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `room_id`, `date_start`, `date_end`, `name`, `phone_number`, `total_nights`, `total_price`, `user_id`, `created_at`, `updated_at`, `email`) VALUES
+(3, 1, '2019-07-09', '2019-07-11', 'raphael menu', '233541591354', '2', '1200', NULL, '2019-07-09 16:23:45', '2019-07-11 13:18:09', 'mike@gmail.com'),
+(5, 1, '2019-07-13', '2019-07-14', 'michael', '233541591354', '1', '600', NULL, '2019-07-09 16:27:19', '2019-07-11 11:07:24', 'michael@gmail.com'),
+(6, 1, '2019-07-16', '2019-07-19', 'Armah Raphael', '233202345674', '3', '1800', NULL, '2019-07-11 09:50:46', '2019-07-11 11:30:26', 'armah@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hotel_details`
+--
+
+CREATE TABLE `hotel_details` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `zip_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `hotel_details`
+--
+
+INSERT INTO `hotel_details` (`id`, `name`, `address`, `city`, `state`, `country`, `zip_code`, `phone_number`, `email`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Home Away From Home', 'osu ring road', 'osu', 'greater accra', 'ghana', '111-000-111', '233541591354', 'mdari61@gmail.com', 'hotel_1562679792.jpg', '2019-07-09 13:43:12', '2019-08-19 11:50:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_06_26_114739_create_hotel_details_table', 1),
+(4, '2019_06_26_114812_create_room_managers_table', 1),
+(5, '2019_06_26_114840_create_room_types_table', 1),
+(6, '2019_06_26_114923_create_price_lists_table', 1),
+(7, '2019_06_26_114946_create_bookings_table', 1),
+(8, '2016_06_01_000001_create_oauth_auth_codes_table', 2),
+(9, '2016_06_01_000002_create_oauth_access_tokens_table', 2),
+(10, '2016_06_01_000003_create_oauth_refresh_tokens_table', 2),
+(11, '2016_06_01_000004_create_oauth_clients_table', 2),
+(12, '2016_06_01_000005_create_oauth_personal_access_clients_table', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_access_tokens`
+--
+
+CREATE TABLE `oauth_access_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `client_id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `oauth_access_tokens`
+--
+
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('078245528ab9c3402d60012edd5b1e45f4411a4f45a1973bfa59215e358d201401e5560907dfcbd1', 1, 2, NULL, '[]', 0, '2019-08-18 20:18:48', '2019-08-18 20:18:48', '2020-08-18 20:18:48'),
+('1d83cbb19b16419e64ac408646c7e029204e8be6e73479ef2e52f25d6bbe858a094ee1572e007f4a', 1, 2, NULL, '[]', 0, '2019-08-18 20:02:30', '2019-08-18 20:02:30', '2020-08-18 20:02:30'),
+('3797a3f8e8d9505c12abd2d80111d3c8009c7d286188a5f8acb6ead6e78b40521f404d36a5483456', 1, 2, NULL, '[]', 0, '2019-08-18 20:02:04', '2019-08-18 20:02:04', '2020-08-18 20:02:04'),
+('37da3c0b842aab422fb8b0e206b3b40503dbc816cd73c1d5bb07bb29c81c897c0832558606a34d6b', 1, 2, NULL, '[]', 0, '2019-08-18 19:47:07', '2019-08-18 19:47:07', '2020-08-18 19:47:07'),
+('396d8a6feaf4f500f7044b2c1e5ad40029f506459e06a7a9aee4c71c4f390023bd6c4e767104a6d8', 1, 2, NULL, '[]', 0, '2019-08-15 15:58:34', '2019-08-15 15:58:34', '2020-08-15 15:58:34'),
+('4547656fdfc1aac8ec07239db9a0eb1a3fff871eca97b047ac05e8340d6774b30324f4d8fc746f13', 1, 2, NULL, '[]', 0, '2019-08-18 19:55:21', '2019-08-18 19:55:21', '2020-08-18 19:55:21'),
+('557978839c55177fcd9518025121129e51fbc75a6afac087e6dfb9190c5e0447da718df37dcf7cab', 1, 2, NULL, '[]', 0, '2019-08-18 21:13:53', '2019-08-18 21:13:53', '2020-08-18 21:13:53'),
+('61beb3fd79ebdaad15d46840798c797ac8121cc4bebbf6643967313b3f9ce742d5e68f48e435cfe3', 1, 2, NULL, '[]', 0, '2019-08-18 19:50:14', '2019-08-18 19:50:14', '2020-08-18 19:50:14'),
+('650a906a7068f2077bca2e731054362584c535d63429e67a1735ea294f4427b0cd373abe58dc7b52', 1, 2, NULL, '[]', 0, '2019-08-18 19:44:53', '2019-08-18 19:44:53', '2020-08-18 19:44:53'),
+('6f59a1cf687918980509d0c84a7607760989eec3f94c6ce1e6b870a653f84088eee11dd186214848', 1, 2, NULL, '[]', 0, '2019-08-18 20:14:38', '2019-08-18 20:14:38', '2020-08-18 20:14:38'),
+('6f7c34f58df63d21421fde2075adaef5f995f1a45218bcea7bdfa4d6e68ccb9cac8adfe4c9b78411', 1, 2, NULL, '[]', 0, '2019-08-19 11:58:06', '2019-08-19 11:58:06', '2020-08-19 11:58:06'),
+('7e8438746947a35ea7463189437c627d3e2d594023ccdc44bd714c5d019523bb1afa5ce40b13b07a', 1, 2, NULL, '[]', 0, '2019-08-18 20:00:58', '2019-08-18 20:00:58', '2020-08-18 20:00:58'),
+('7fa8a757029178e5c13263f4843858f511343c3ef537572ddee1cab40e5518d3720ad1e5d4a380f0', 1, 2, NULL, '[]', 0, '2019-08-18 19:44:21', '2019-08-18 19:44:21', '2020-08-18 19:44:21'),
+('81a703ea99be680a2359112b1b9cafd3c8e5e01f4cc27275ab7008e4bcb6aab5cbddd77d73a68240', 1, 2, NULL, '[]', 0, '2019-08-18 20:15:25', '2019-08-18 20:15:25', '2020-08-18 20:15:25'),
+('86898eb471cff341713ed689af2e761444ad11fa6abe78ae011201c04c0e34a997c5f04466a104aa', 1, 2, NULL, '[]', 0, '2019-08-18 19:50:41', '2019-08-18 19:50:41', '2020-08-18 19:50:41'),
+('8e0330a77b85f5e41543e8e87db704ad6da0e22430523c930446fb45d27687875e7a5f715133abf0', 1, 2, NULL, '[]', 0, '2019-08-18 20:01:59', '2019-08-18 20:01:59', '2020-08-18 20:01:59'),
+('8e5f6f2a7053d6f880c3c0d8f5e5353ec35fdfd7e2207020e04b7e3d64bcbf923fcb727286bc3414', 1, 2, NULL, '[]', 0, '2019-08-18 20:09:39', '2019-08-18 20:09:39', '2020-08-18 20:09:39'),
+('95056b42321a9ca04eac138165147a79c589004bb6cb2798ab0e7a63176afa53dd91333654c554c7', 1, 2, NULL, '[]', 0, '2019-08-18 19:52:55', '2019-08-18 19:52:55', '2020-08-18 19:52:55'),
+('b6c0f1343a6bcf68f5d2b9ea51f6ea7344c89058f8b0d7a8ed0642272df92d9809e0de89db2be527', 1, 2, NULL, '[]', 0, '2019-08-15 16:21:51', '2019-08-15 16:21:51', '2020-08-15 16:21:51'),
+('b72521558399b7b773858fb48fb8c94bd94f6cc429598e54b255f8162f3727f5421582d7b70ca0b7', 1, 2, NULL, '[]', 0, '2019-08-18 20:02:51', '2019-08-18 20:02:51', '2020-08-18 20:02:51'),
+('ce9bfb887c4eb4f37825af6aee19a3d037edfc6c056765b5bd6aaf7c6439b5f94607e2cf2371921d', 1, 2, NULL, '[]', 0, '2019-08-18 20:13:16', '2019-08-18 20:13:16', '2020-08-18 20:13:16'),
+('de70395f8477673991daefb036448d0cc8b1eb48f0f18f2955db04294b9fdd308116ead78aa5201b', 1, 2, NULL, '[]', 0, '2019-08-18 19:51:51', '2019-08-18 19:51:51', '2020-08-18 19:51:51'),
+('f75a8b04b97dbec5f1ed255052140827b142559f2e98593b731e5df03d049483ed4e5ae211a74b35', 1, 2, NULL, '[]', 0, '2019-08-18 19:46:31', '2019-08-18 19:46:31', '2020-08-18 19:46:31'),
+('f7cc1c9b03b1ffd964a112e4b53ef69292a992d8e6db96f71c4e2692d52b73bffe3415981e16b17a', 1, 2, NULL, '[]', 0, '2019-08-18 19:40:38', '2019-08-18 19:40:38', '2020-08-18 19:40:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_auth_codes`
+--
+
+CREATE TABLE `oauth_auth_codes` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `client_id` int(10) UNSIGNED NOT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_clients`
+--
+
+CREATE TABLE `oauth_clients` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `redirect` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `personal_access_client` tinyint(1) NOT NULL,
+  `password_client` tinyint(1) NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `oauth_clients`
+--
+
+INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'hotelbooking_v2 Personal Access Client', '9PgEid51nlvZz3qaRjIb4a9hW5I5WuEf8AueREYa', 'http://localhost', 1, 0, 0, '2019-08-15 11:30:36', '2019-08-15 11:30:36'),
+(2, NULL, 'hotelbooking_v2 Password Grant Client', 'Xva1G3M3eN6N7ycOaBD8mUg0ASu2XFcukCT86Ol6', 'http://localhost', 0, 1, 0, '2019-08-15 11:30:36', '2019-08-15 11:30:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_personal_access_clients`
+--
+
+CREATE TABLE `oauth_personal_access_clients` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `client_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `oauth_personal_access_clients`
+--
+
+INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
+(1, 1, '2019-08-15 11:30:36', '2019-08-15 11:30:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oauth_refresh_tokens`
+--
+
+CREATE TABLE `oauth_refresh_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `oauth_refresh_tokens`
+--
+
+INSERT INTO `oauth_refresh_tokens` (`id`, `access_token_id`, `revoked`, `expires_at`) VALUES
+('1705e01b4fb070dd167320fd26d4d61c3121debe7ae79f0188a77e1fb257f47a960cfaf35969ae04', '61beb3fd79ebdaad15d46840798c797ac8121cc4bebbf6643967313b3f9ce742d5e68f48e435cfe3', 0, '2020-08-18 19:50:14'),
+('237cf4c6f1762b95bc71c3367ec41361de162aec8129ad86e7a88ae095de031b6621bf7f3e825c32', '078245528ab9c3402d60012edd5b1e45f4411a4f45a1973bfa59215e358d201401e5560907dfcbd1', 0, '2020-08-18 20:18:48'),
+('48c47e6a204b6c423881950c5489c3bea5b11357c5eb02704f49426d79389a4da2d75af3add97644', '86898eb471cff341713ed689af2e761444ad11fa6abe78ae011201c04c0e34a997c5f04466a104aa', 0, '2020-08-18 19:50:41'),
+('4b2d7205e90b700189a002d07024bc87706d758990cab5e0f0de9108075159c754aed5fd658ac7a9', '8e5f6f2a7053d6f880c3c0d8f5e5353ec35fdfd7e2207020e04b7e3d64bcbf923fcb727286bc3414', 0, '2020-08-18 20:09:39'),
+('5f99fb1f5406b3e17549d5dd90008e5aecd099f87a0dedd2bc7dc20fa3a5a6a4a464557272582d22', '7fa8a757029178e5c13263f4843858f511343c3ef537572ddee1cab40e5518d3720ad1e5d4a380f0', 0, '2020-08-18 19:44:21'),
+('60006bba0efb667da88ebefa87a4cbac1fe40e7b152b1632849281eb0a6db2bda133fb49256282c8', 'b72521558399b7b773858fb48fb8c94bd94f6cc429598e54b255f8162f3727f5421582d7b70ca0b7', 0, '2020-08-18 20:02:51'),
+('843f59eac6bf6bfeb035668d1208d63727d53b0ca80fa7c2b88cfadb80015d1ac52f98b21be9f355', 'de70395f8477673991daefb036448d0cc8b1eb48f0f18f2955db04294b9fdd308116ead78aa5201b', 0, '2020-08-18 19:51:51'),
+('87130263c69ffa4a8a19cf5ddb8cbab4ebb3cedc41b4cf3e216d65fedd043b450575abcc62605fbc', '95056b42321a9ca04eac138165147a79c589004bb6cb2798ab0e7a63176afa53dd91333654c554c7', 0, '2020-08-18 19:52:55'),
+('8e149487be79bae893b2b492cbd532fdfafd624c08b2d938eea23ea8fba1ee9b79c50cd49de04276', '396d8a6feaf4f500f7044b2c1e5ad40029f506459e06a7a9aee4c71c4f390023bd6c4e767104a6d8', 0, '2020-08-15 15:58:34'),
+('8e6f0e40803e115528fcc2631c9b0e5cfb7cc7a8af37b8e1005ee997a2b6d8d83ae706d6ef10af5f', '6f59a1cf687918980509d0c84a7607760989eec3f94c6ce1e6b870a653f84088eee11dd186214848', 0, '2020-08-18 20:14:38'),
+('938af8574ea9f335fca4394c308f0a6cff720759bb6e2bcb7c35f17ffbeed7501d2db02caf8a0c2f', '3797a3f8e8d9505c12abd2d80111d3c8009c7d286188a5f8acb6ead6e78b40521f404d36a5483456', 0, '2020-08-18 20:02:04'),
+('9600b09a53b8cd1bed8fbd6ab15b44f1cd9fca977b49287d4c7863d7ce251668e86b00de01ecceca', '7e8438746947a35ea7463189437c627d3e2d594023ccdc44bd714c5d019523bb1afa5ce40b13b07a', 0, '2020-08-18 20:00:58'),
+('9aaa00ff9c6d7a8207cbb1703ce7e46c22bc7082d8749001008ccd18301a8a3bc51d609a9f412ace', '650a906a7068f2077bca2e731054362584c535d63429e67a1735ea294f4427b0cd373abe58dc7b52', 0, '2020-08-18 19:44:53'),
+('9d7a05133d972b4486c7c07ac250a4b4afc843e3a40e70298e50ef555ad2b7e7f31213c769ac35a5', '1d83cbb19b16419e64ac408646c7e029204e8be6e73479ef2e52f25d6bbe858a094ee1572e007f4a', 0, '2020-08-18 20:02:30'),
+('a0c2c28e1c88d384e68f2daef0432a3b73126fc83a18d3ac718259a41942ef81b682fb313a2a515b', '6f7c34f58df63d21421fde2075adaef5f995f1a45218bcea7bdfa4d6e68ccb9cac8adfe4c9b78411', 0, '2020-08-19 11:58:06'),
+('aa0e8c23c61718fcc35bc9333caff4ce5aeb73c26a1fa7b4137a0dd685324f35622850159dcff3f2', 'f75a8b04b97dbec5f1ed255052140827b142559f2e98593b731e5df03d049483ed4e5ae211a74b35', 0, '2020-08-18 19:46:31'),
+('ad4c76bc96b039bcc365f995019153bf4508223a1909e53ae4a19d4a6fb2b8a12ed56c77499d86b0', 'b6c0f1343a6bcf68f5d2b9ea51f6ea7344c89058f8b0d7a8ed0642272df92d9809e0de89db2be527', 0, '2020-08-15 16:21:51'),
+('b6536c22e59c7a95abcc9889012dba952e2c654dc9d8c57a68d094385877b57ca63fd35774099958', '81a703ea99be680a2359112b1b9cafd3c8e5e01f4cc27275ab7008e4bcb6aab5cbddd77d73a68240', 0, '2020-08-18 20:15:25'),
+('c9f4fffe88a116ca040091f1a2cf17aa5926f64279708726fc8a595d9f1bdc35189b9195cc470883', '37da3c0b842aab422fb8b0e206b3b40503dbc816cd73c1d5bb07bb29c81c897c0832558606a34d6b', 0, '2020-08-18 19:47:07'),
+('d2faee7da96dda607f0d5594bf7de3f1bd8dbe1499967c022042bfb9702fbd88a16b9858adc48dfa', '8e0330a77b85f5e41543e8e87db704ad6da0e22430523c930446fb45d27687875e7a5f715133abf0', 0, '2020-08-18 20:01:59'),
+('e1c46d64eec9b7a0690465ecd13e411691cfffa78335f2e3aea332718e2a200628d806e4b5cb2b02', 'ce9bfb887c4eb4f37825af6aee19a3d037edfc6c056765b5bd6aaf7c6439b5f94607e2cf2371921d', 0, '2020-08-18 20:13:16'),
+('f0e514052ce54f7dba8f41bd3a384a7c19070493ed43ebe068ee5bfade97cf356caf268dc553b2d8', '557978839c55177fcd9518025121129e51fbc75a6afac087e6dfb9190c5e0447da718df37dcf7cab', 0, '2020-08-18 21:13:53'),
+('f326584d243257d94fbd7f79cad9c8da0cf82768b7088c9f052adc7b1ad15f535786715a06fd2c2d', '4547656fdfc1aac8ec07239db9a0eb1a3fff871eca97b047ac05e8340d6774b30324f4d8fc746f13', 0, '2020-08-18 19:55:21'),
+('fdb178a10b53e4104eb6d86dea4e43293403579fb39192186243e6d725fc31e60d7ebe3f9548203c', 'f7cc1c9b03b1ffd964a112e4b53ef69292a992d8e6db96f71c4e2692d52b73bffe3415981e16b17a', 0, '2020-08-18 19:40:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `price_lists`
+--
+
+CREATE TABLE `price_lists` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `room_type_id` bigint(20) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `price_lists`
+--
+
+INSERT INTO `price_lists` (`id`, `price`, `room_type_id`, `created_at`, `updated_at`) VALUES
+(1, '400', 1, '2019-07-09 13:47:36', '2019-07-10 13:47:56'),
+(3, '600', 2, '2019-07-09 13:57:23', '2019-07-09 14:00:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room_managers`
+--
+
+CREATE TABLE `room_managers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hotel_id` bigint(20) NOT NULL,
+  `room_type_id` bigint(20) NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `room_managers`
+--
+
+INSERT INTO `room_managers` (`id`, `name`, `hotel_id`, `room_type_id`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'A11', 1, 2, 'room_A1_1562681178.jpg', '2019-07-09 14:06:18', '2019-08-18 20:19:08'),
+(2, 'A2', 1, 1, 'room_A2_1562681238.jpg', '2019-07-09 14:07:18', '2019-07-09 14:07:18'),
+(3, 'B2', 1, 2, 'room_B2_1562681247.jpg', '2019-07-09 14:07:27', '2019-07-09 14:07:27'),
+(4, 'B1', 1, 2, 'room_B1_1562681302.jpg', '2019-07-09 14:08:22', '2019-07-09 14:08:22'),
+(5, 'C1', 1, 1, 'room_C1_1562766137.jpg', '2019-07-10 13:42:17', '2019-07-10 13:42:17');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room_types`
+--
+
+CREATE TABLE `room_types` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `room_types`
+--
+
+INSERT INTO `room_types` (`id`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'Standard', '2019-07-09 13:43:54', '2019-08-18 20:15:32'),
+(2, 'Deluxe', '2019-07-09 13:44:08', '2019-07-09 13:44:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Dari Michael', 'mdari61@gmail.com', NULL, '$2y$10$Jy.PZgbc0RqWI8YbMq4I3uZGAPp4s2MbFJ4BoI.kD.zyC/Fzbp9dW', NULL, '2019-08-15 15:25:18', '2019-08-15 15:25:18'),
+(4, 'Dari Michael', 'mdari62@gmail.com', NULL, '$2y$04$VEwMXdfrLW.4iMZlnoB/TuidO4kGNHFR4L6T5PRxKP3mHZdegH0yu', NULL, '2019-08-18 21:13:53', '2019-08-18 21:13:53'),
+(218, 'Clarissa Senger', 'douglas.anibal@example.net', NULL, '$2y$10$kRinBAUZaPgYeeoBXKvIrOLa5gS0TUx/rPuRD9OtyB.rwkthcig.u', NULL, '2019-08-18 21:51:21', '2019-08-18 21:51:21'),
+(386, 'Dr. Deshawn Wiegand', 'kennedi.little@example.net', '2019-08-18 22:34:47', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'cZth9ceLlI', '2019-08-18 22:34:47', '2019-08-18 22:34:47'),
+(396, 'Loma Prohaska Sr.', 'linwood.wilderman@example.net', '2019-08-18 22:40:46', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'oswflkE4Lq', '2019-08-18 22:40:46', '2019-08-18 22:40:46'),
+(406, 'Adrian Heidenreich', 'torphy.kendra@example.com', '2019-08-18 22:41:22', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'pDEAWLhfvu', '2019-08-18 22:41:22', '2019-08-18 22:41:22'),
+(623, 'Jennifer Corkery', 'santina08@example.net', '2019-08-19 11:07:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'DuLA66Nx6z', '2019-08-19 11:07:03', '2019-08-19 11:07:03'),
+(626, 'Tremaine Daniel', 'gregoria18@example.org', '2019-08-19 11:07:04', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'XDwUaZA4bL', '2019-08-19 11:07:04', '2019-08-19 11:07:04'),
+(636, 'Reynold Hills', 'heathcote.nyah@example.org', '2019-08-19 11:08:54', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'zF37ux6iNM', '2019-08-19 11:08:54', '2019-08-19 11:08:54'),
+(639, 'Katarina Bradtke', 'hershel.gutkowski@example.net', '2019-08-19 11:08:54', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NxF81CorqQ', '2019-08-19 11:08:54', '2019-08-19 11:08:54'),
+(640, 'Joana Gerlach', 'parker.little@example.net', '2019-08-19 11:08:54', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'lO5c9j2569', '2019-08-19 11:08:54', '2019-08-19 11:08:54'),
+(650, 'Mr. Turner Harber V', 'toni.orn@example.com', '2019-08-19 11:09:13', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'KcambKWp7e', '2019-08-19 11:09:13', '2019-08-19 11:09:13'),
+(653, 'Leonel Carter', 'kuphal.rahul@example.org', '2019-08-19 11:09:13', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ibRG6qYYHQ', '2019-08-19 11:09:13', '2019-08-19 11:09:13'),
+(654, 'Rosalia Pouros V', 'jacobs.josiane@example.com', '2019-08-19 11:09:13', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'xU1YzGKwCM', '2019-08-19 11:09:13', '2019-08-19 11:09:13'),
+(655, 'Ewald Sauer', 'liana82@example.net', '2019-08-19 11:09:13', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'QexKTClnNY', '2019-08-19 11:09:13', '2019-08-19 11:09:13');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bookings`
+--
+ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hotel_details`
+--
+ALTER TABLE `hotel_details`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `hotel_details_name_unique` (`name`),
+  ADD UNIQUE KEY `hotel_details_phone_number_unique` (`phone_number`),
+  ADD UNIQUE KEY `hotel_details_email_unique` (`email`),
+  ADD UNIQUE KEY `hotel_details_image_unique` (`image`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oauth_access_tokens`
+--
+ALTER TABLE `oauth_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_access_tokens_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `oauth_auth_codes`
+--
+ALTER TABLE `oauth_auth_codes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_clients_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `oauth_personal_access_clients`
+--
+ALTER TABLE `oauth_personal_access_clients`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_personal_access_clients_client_id_index` (`client_id`);
+
+--
+-- Indexes for table `oauth_refresh_tokens`
+--
+ALTER TABLE `oauth_refresh_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_refresh_tokens_access_token_id_index` (`access_token_id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `price_lists`
+--
+ALTER TABLE `price_lists`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `room_managers`
+--
+ALTER TABLE `room_managers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `room_managers_name_unique` (`name`);
+
+--
+-- Indexes for table `room_types`
+--
+ALTER TABLE `room_types`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `room_types_type_unique` (`type`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bookings`
+--
+ALTER TABLE `bookings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `hotel_details`
+--
+ALTER TABLE `hotel_details`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `oauth_personal_access_clients`
+--
+ALTER TABLE `oauth_personal_access_clients`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `price_lists`
+--
+ALTER TABLE `price_lists`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `room_managers`
+--
+ALTER TABLE `room_managers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `room_types`
+--
+ALTER TABLE `room_types`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=656;
